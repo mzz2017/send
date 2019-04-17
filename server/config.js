@@ -31,7 +31,7 @@ const conf = convict({
   },
   anon_max_expire_seconds: {
     format: Number,
-    default: 86400,
+    default: 86400 * 7,
     env: 'ANON_MAX_EXPIRE_SECONDS'
   },
   download_counts: {
@@ -46,7 +46,7 @@ const conf = convict({
   },
   anon_max_downloads: {
     format: Number,
-    default: 5,
+    default: 100,
     env: 'ANON_MAX_DOWNLOADS'
   },
   max_files_per_archive: {
@@ -107,12 +107,12 @@ const conf = convict({
   },
   max_file_size: {
     format: Number,
-    default: 1024 * 1024 * 1024 * 2.5,
+    default: 1024 * 1024 * 1024 * 4,
     env: 'MAX_FILE_SIZE'
   },
   anon_max_file_size: {
     format: Number,
-    default: 1024 * 1024 * 1024,
+    default: 1024 * 1024 * 1024 * 2.5,
     env: 'ANON_MAX_FILE_SIZE'
   },
   l10n_dev: {
@@ -122,7 +122,7 @@ const conf = convict({
   },
   base_url: {
     format: 'url',
-    default: 'https://send.firefox.com',
+    default: 'https://send.shumsg.cn',
     env: 'BASE_URL'
   },
   file_dir: {

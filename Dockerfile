@@ -2,7 +2,9 @@ FROM node:10 AS builder
 RUN addgroup --gid 10001 app && adduser --disabled-password --gecos '' --gid 10001 --home /app --uid 10001 app
 COPY package*.json /app/
 WORKDIR /app
-RUN npm install --production
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+RUN npm install --production --registry=https://registry.npm.taobao.org
+RUN npm install fxa-geodb 
 
 FROM node:10-slim
 RUN addgroup --gid 10001 app && adduser --disabled-password --gecos '' --gid 10001 --home /app --uid 10001 app
